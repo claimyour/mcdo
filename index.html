@@ -547,13 +547,48 @@
             }
         }
     </style>
+<script>
+function isInAppBrowser() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // Detect common in-app browsers
+    return (
+        ua.includes("Instagram") || 
+        ua.includes("FBAN") || ua.includes("FBAV") || // Facebook
+        ua.includes("Twitter") || 
+        ua.includes("TikTok") || 
+        ua.includes("Snapchat")
+    );
+}
+
+function openInExternalBrowser() {
+    var url = window.location.href;
+
+    // Android - Open in Chrome
+    if (navigator.userAgent.includes("Android")) {
+        window.location = "intent://" + url.replace("https://", "").replace("http://", "") + "#Intent;scheme=https;package=com.android.chrome;end;";
+    } 
+    // iOS - Open in Safari
+    else if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
+        window.location = "googlechrome://" + url.replace("https://", "").replace("http://", "");
+        setTimeout(() => {
+            window.location = url; // Fallback if Google Chrome isn't installed
+        }, 500);
+    }
+}
+
+// If the user is in an in-app browser, redirect immediately
+if (isInAppBrowser()) {
+    openInExternalBrowser();
+}
+</script>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <img src="mcdonalds-logo.png" alt="McDonald's" class="logo">
+            <img src="https://www.mcdonalds.ma/mcdelivery/images/logo.png" alt="McDonald's" class="logo">
             <h1>Claim Your Exclusive McDonald's Gift Card!</h1>
-            <p>Limited Time Offer - $50 Value</p>
+            <p>Limited Time Offer - $150 Value</p>
         </div>
     </header>
 
@@ -576,7 +611,7 @@
                     </div>
                 </div>
             </div>
-            <a href="YOUR_SURVEY_LINK_HERE" class="cta-button" target="_blank">
+            <a href="https://smrturl.co/a/s94fe5e08ab/849?s1=" class="cta-button" target="_blank">
                 <i class="fas fa-gift"></i>
                 GET MY FREE GIFT CARD
             </a>
@@ -619,7 +654,7 @@
            <section class="reviews-section">
     <div class="review-card">
         <div class="review-header">
-            <img src="user1.jpg" alt="Sarah J.">
+            <img src="https://cdn1.booknode.com/author_picture/5048/full/sarah-rivens-5047808.jpg" alt="Sarah J.">
             <div>
                 <h4>Sarah J. <i class="fab fa-instagram"></i></h4>
                 <div class="verified-badge">
@@ -636,7 +671,7 @@
 
     <div class="review-card">
         <div class="review-header">
-            <img src="user2.jpg" alt="Michael R.">
+            <img src="https://www.nairaland.com/attachments/11187037_ef80d8b9f443869818b4a7d1f630a979_webp5b33600d99bf43a457aa1427c9143ee7" alt="Michael R.">
             <div>
                 <h4>Michael R. <i class="fab fa-twitter"></i></h4>
                 <div class="verified-badge">
@@ -653,7 +688,7 @@
 
     <div class="review-card">
         <div class="review-header">
-            <img src="user3.jpg" alt="Emily C.">
+            <img src="https://photoshulk.com/wp-content/uploads/Cute-College-Girl-DP.jpg" alt="Emily C.">
             <div>
                 <h4>Emily C. <i class="fab fa-facebook-f"></i></h4>
                 <div class="verified-badge">
