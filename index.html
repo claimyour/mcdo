@@ -778,6 +778,7 @@
                 }
             });
         });
+        
 // Disable Right-Click
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 
@@ -793,24 +794,6 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-// Detect and Block Developer Tools
-(function() {
-    function detectDevTools() {
-        const devtools = /./;
-        devtools.toString = function() {
-            this.opened = true;
-        };
-        console.log("%c", devtools);
-        return devtools.opened;
-    }
-
-    setInterval(() => {
-        if (detectDevTools()) {
-            alert("Developer Tools detected! Please close DevTools.");
-            window.location.reload();
-        }
-    }, 1000);
-})();
 
     </script>
 </body>
